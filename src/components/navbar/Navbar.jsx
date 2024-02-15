@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 function Navbar() {
@@ -13,9 +13,23 @@ function Navbar() {
 
   const [showMenu, setShowMenu] = useState(false);
   const [showBars, setShowBars] = useState(true);
+  const [pageOffset, setPageOffset] = useState();
+  const navContainer = useRef();
+  window.addEventListener("scroll", () => {
+    setPageOffset(window.pageYOffset);
+  });
+
+  useEffect(() => {
+    // console.log(window.screenY)
+  }, []);
+
   return (
     <>
-      <div className="navbarWrapper w-full fixed top-0 left-0 ">
+      <div
+        className="navbarWrapper w-full fixed top-0 left-0 z-50 "
+        ref={navContainer}
+        style={{backgroundColor:`${pageOffset > 0 ? '#333' : '#33333373'}`}}
+      >
         <div className=" w-full flex justify-between">
           <div className="logo flex justify-center items-center ">
             <img src="./logo.png" className="w-56 " alt="" />
@@ -73,12 +87,23 @@ function Navbar() {
           )}
 
           <div className="navbarItems  justify-around items-center  w-[85%] hidden lg:flex">
-            <div className="text-lg text-white cp">Home</div>
-            <div className="text-lg text-white cp">Products</div>
-            <div className="text-lg text-white cp">Projects</div>
-            <div className="text-lg text-white cp">Services</div>
-            <div className="text-lg text-white cp">About Us</div>
-            <div className="text-lg text-white cp">Contact Us</div>
+            {menuItems.map((item) => (
+              <NavLink
+                to={item.path}
+                key={item.id}
+                className={(itemm) =>
+                  itemm.isActive
+                    ? "text-lg block text-green-500  text-center text-xl  py-3 cp"
+                    : "text-lg block text-white  text-center text-xl  py-3 cp"
+                }
+                onClick={() => {
+                  setShowMenu(false);
+                  setShowBars(true);
+                }}
+              >
+                {item.title}
+              </NavLink>
+            ))}
             <div className="serachContainer relative">
               <input
                 type="text"
@@ -121,8 +146,8 @@ function Navbar() {
                   : "text-lg block text-white bg-slate-600 text-center text-xl border border-b border-gray-400 py-3 cp"
               }
               onClick={() => {
-                setShowMenu(false)
-                setShowBars(true)
+                setShowMenu(false);
+                setShowBars(true);
               }}
             >
               {item.title}

@@ -6,7 +6,7 @@
     cursor: pointer;
 }
 .navbarWrapper{
-    background-color: rgba(25, 44, 25, 0.527);
+    background-color: #33333373;
 }
 .navbar-menu{
 animation: navbar 1s;
