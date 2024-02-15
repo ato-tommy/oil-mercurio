@@ -8,3 +8,15 @@
 .navbarWrapper{
     background-color: rgba(25, 44, 25, 0.527);
 }
+.navbar-menu{
+animation: navbar 1s;
+}
+
+@keyframes navbar{
+    0%{
+        transform: translateY(-50vh);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
