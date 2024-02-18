@@ -5,11 +5,37 @@
 .cp{
     cursor: pointer;
 }
-.navbarWrapper{
-    background-color: #33333373;
+.t07{
+    transition: all .7s;
 }
+
 .navbar-menu{
 animation: navbar 1s;
+}
+.HomeServicesContainer{
+    background: url(./../public/banner6.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.servicesItemsContainer{
+    background-color: #33333392;
+}
+.homeCategrieBoxTextsContainer{
+    background-color: #222222a4;
+}
+.homeCategrieBox:hover > .homeCategrieBoxTextsContainer{
+    top: 0 !important;
+    align-items: center;
+}
+
+.homeCategories{
+    /* background-image: linear-gradient(to bottom , rgb(30, 41, 59)50%,white ); */
+    background-image: linear-gradient(to bottom , rgb(15,23,42)50%,rgb(163, 161, 161) );
+}
+
+.newsBox{
+    background-color: #dedddd28;
 }
 
 @keyframes navbar{

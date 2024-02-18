@@ -8,7 +8,7 @@ import Services from "../pages/Services/Services";
 const router = [
    {path:'/',element:<Home/>},
    {path:'/products',element:<Products/>},
-   {path:'/projects',element:<Projects/>},
+   // {path:'/projects',element:<Projects/>},
    {path:'/services',element:<Services/> },
    {path:'/aboutus',element:<AboutUs/> },
    {path:'/contactus',element:<ContactUS/> },

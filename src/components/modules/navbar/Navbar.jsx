@@ -5,7 +5,7 @@ function Navbar() {
   const menuItems = [
     { id: 1, title: "Home", path: "/" },
     { id: 2, title: "Products", path: "/products" },
-    { id: 3, title: "Projects", path: "/projects" },
+    // { id: 3, title: "Projects", path: "/projects" },
     { id: 4, title: "Services", path: "/services" },
     { id: 5, title: "About Us", path: "/aboutus" },
     { id: 6, title: "Contact Us", path: "/contactus" },
@@ -28,11 +28,11 @@ function Navbar() {
       <div
         className="navbarWrapper w-full fixed top-0 left-0 z-50 "
         ref={navContainer}
-        style={{backgroundColor:`${pageOffset > 0 ? '#333' : '#33333373'}`}}
+        style={{backgroundColor:`${pageOffset > 0 ? '#333' : ''}`}}
       >
         <div className=" w-full flex justify-between">
           <div className="logo flex justify-center items-center ">
-            <img src="./logo.png" className="w-56 " alt="" />
+            <img src="./logo.png" className="w-56" alt="" />
           </div>
           {showBars && (
             <div className="block lg:hidden text-white text-xl absolute top-6 right-6 ">
@@ -86,14 +86,14 @@ function Navbar() {
             </div>
           )}
 
-          <div className="navbarItems  justify-around items-center  w-[85%] hidden lg:flex">
+          <div className="navbarItems  justify-around items-center  w-[75%] hidden lg:flex">
             {menuItems.map((item) => (
               <NavLink
                 to={item.path}
                 key={item.id}
                 className={(itemm) =>
                   itemm.isActive
-                    ? "text-lg block text-green-500  text-center text-xl  py-3 cp"
+                    ? " block text-amber-700 !text-2xl font-semibold  text-center   py-3 cp"
                     : "text-lg block text-white  text-center text-xl  py-3 cp"
                 }
                 onClick={() => {
